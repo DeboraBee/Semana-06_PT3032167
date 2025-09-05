@@ -26,16 +26,16 @@ def rotainexistente():
 
 @app.route('/user/<nome>/<prontuario>/<instituicao>')
 def identificacao(nome, prontuario, instituicao):
-    return f'<h1>Avaliação contínua: Aula 030</h1><h2>Aluno(a): {nome}</h2><h2>Prontuário: {prontuario}</h2><h2>Instituição: {instituicao}</h2><p><a href="https://giovanna1.pythonanywhere.com/">Voltar</a></p>'
-
+    return render_template('user.html', nome=nome, prontuario=prontuario, instituicao=instituicao)
+    
 from flask import request
-@app.route('/contextorequisicao')
-def contextorequisicao():
+@app.route('/contextorequisicao/<nome>')
+def contextorequisicao(nome):
     requisicao = request.headers.get('User-Agent')
     IP = request.remote_addr
     host = request.host
-    return f'<h1>Avaliação contínua: Aula 030</h1><h2>Seu navegador é: {requisicao}</h2><h2>O IP do computador remoto é: {IP}</h2><h2>O host da aplicação é: {host}</h2><p><a href="https://giovanna1.pythonanywhere.com/">Voltar</a></p>'
-
+    return render_template('requisicao.html', nome=nome, requisicao=requisicao, IP=IP, host=host)
+    
 @app.route('/codigostatusdiferente')
 def codigostatusdiferente():
     codigo = request.args['codigo']
