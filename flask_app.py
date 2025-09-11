@@ -1,12 +1,20 @@
 # A very simple Flask Hello World app for you to get started with...
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for, flash, session
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from datetime import datetime
+from flask_wtf import Flaskform
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired
 
 app = Flask(__name__)
+app.config['SECRET KEY'] = 'Chave forte'
 bootstrap = Bootstrap(app)
 moment = Moment(app)
+
+class NameForm(FlaskForm):
+    name = StringField('What is your name?',  validators = [DataRequired()])
+    submit = SubmitField('Submit')
 
 @app.route('/')
 def hello_world():
