@@ -46,8 +46,8 @@ def rotainexistente():
 @app.route('/user/<nome>/<prontuario>/<instituicao>')
 def identificacao(nome, prontuario, instituicao):
     return render_template('user.html', nome=nome, prontuario=prontuario, instituicao=instituicao)
-    
-from flask import request
+
+
 @app.route('/contextorequisicao/<nome>')
 def contextorequisicao(nome):
     requisicao = request.headers.get('User-Agent')
@@ -60,14 +60,14 @@ def codigostatusdiferente():
     codigo = request.args['codigo']
     return f'<p>{codigo}</p>'
 
-from flask import make_response
+
 @app.route('/objetoresposta')
 def objetoresposta():
     response = make_response('<h1>This document carries a cookie!</h1>')
     response.set_cookie('answer','42')
     return response
 
-from flask import redirect
+
 @app.route('/redirecionamento')
 def redirecionamento():
     return redirect('https://ptb.ifsp.edu.br/')
