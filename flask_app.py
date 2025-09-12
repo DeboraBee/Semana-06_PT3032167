@@ -6,7 +6,7 @@ from flask import request
 from flask import make_response
 from flask import redirect, url_for, flash, session
 from datetime import datetime
-from flask_wtf import Flaskform
+from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 
