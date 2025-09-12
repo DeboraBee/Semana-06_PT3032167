@@ -17,7 +17,7 @@ moment = Moment(app)
 app.config['SECRET KEY'] = "Chave forte"
 
 class NameForm(FlaskForm):
-    name = StringField('What is your name?',  validators = [DataRequired()])
+    name = StringField("What's your name?",  validators = [DataRequired()])
     submit = SubmitField('Submit')
 
 @app.route('/', methods=['GET','POST'])
