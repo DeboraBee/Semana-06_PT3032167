@@ -4,7 +4,7 @@ from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from flask import request 
 from flask import make_response
-from flask import url_for, flash, session, redirect
+from flask import redirect, url_for, flash, session,
 from datetime import datetime
 from flask_wtf import Flaskform
 from wtforms import StringField, SubmitField
